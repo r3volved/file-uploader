@@ -1,6 +1,16 @@
+# Library
+
+```js
+const uploader = require(`index.js`)
+const server   = uploader.Server( port, extensions_array, uploads_folder )
+const client   = uploader.Client( port, host, file )
+```
+
+
 # Server
 
 upload-server.js
+
 
 ## Config 
 
@@ -12,20 +22,35 @@ At runtime, set node env
 - EXT=<csv_extensions>
 - UPLOADS=<uploads_folder>
 
-## Run
 
+## Run from code
+
+```js
+const uploader = require(`.`)
+const server   = uploader.Server( port, extensions_array, uploads_folder )
+```
+
+
+## Run from console
+
+```sh
 node upload-server
+```
 
+
+### Override defaults with env variables
+
+```sh
 PORT=1234 node upload-server
-
 EXT=png,jpg,gif node upload-server
-
 UPLOADS=/home/me/uploads node upload-server
+```
 
 
 # Client
 
 upload.js
+
 
 ## Config
 
@@ -35,12 +60,27 @@ At runtime, set node env
 
 - PORT=<host_port>
 - HOST=<host_ip>
+- FILE=<upload_file>
 
-## Run
 
+## Run from code
+
+```js
+const uploader = require(`.`)
+const client   = uploader.Client( port, host, file )
+```
+
+
+## Run from console
+
+```sh
 node upload /path/to/myVideo.mp4
+```
 
+
+### Override defaults with env variables
+
+```sh
 PORT=1234 node upload /path/to/myVideo.mp4
-
-PORT=1234 HOST=192.168.2.144 node upload /path/to/myVideo.mp4
-
+HOST=192.168.2.144 node upload /path/to/myVideo.mp4
+```

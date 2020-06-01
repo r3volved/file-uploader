@@ -70,4 +70,7 @@ module.exports = ( port, extentions, uploads ) => {
 
     //Start the socket server
     server.listen(port);
+
+    return server
+
 }

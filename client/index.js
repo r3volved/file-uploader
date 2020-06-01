@@ -1,7 +1,7 @@
-module.exports = ( port, host ) => {
+module.exports = ( port, host, file = '' ) => {
 
     //Get video path from 3rd argument [ nodepath, filepath, videofile ]
-    const video_path = (process.argv[2]||'').replace(/^\./,__dirname)
+    const video_path = file.replace(/^\./,__dirname)
     const path_folders = video_path.split(/\/|\\/)
     const converted_path = path_folders
         .splice(0,path_folders.length-1)
@@ -62,5 +62,7 @@ module.exports = ( port, host ) => {
 
     //On connection, send the filename
     socket.connect(port, host, () => socket.write(video_path))
-            
+
+    return socket
+                
 }
