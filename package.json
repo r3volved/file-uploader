@@ -1,0 +1,12 @@
+{
+  "name": "uploader",
+  "version": "1.0.0",
+  "description": "upload server and client",
+  "main": "upload-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}
